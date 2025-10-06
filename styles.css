@@ -43,16 +43,38 @@
   section{padding: clamp(36px, 8vh, 96px) 0}
   
   /* Header */
-  .site-header{
+.site-header{
     position:sticky; top:0; z-index:50;
     backdrop-filter:saturate(140%) blur(10px);
     background: rgba(10,12,18,.7);
     border-bottom: 1px solid rgba(255,255,255,.06);
   }
-  .header-inner{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .header-inner{
+    /* 3-column grid: brand | nav (flex) | CTA */
+    display:grid; grid-template-columns:auto 1fr auto;
+    align-items:center; column-gap:16px;
+    height:64px;
+  }
   .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text);}
   .brand img{width:28px; height:28px; border-radius:8px}
   .brand span{font-weight:600; letter-spacing:.3px}
+  
+  /* Desktop nav (centered, no wrap) */
+  .desktop-nav{display:none}
+  @media (min-width: 720px){
+    .header-inner{height:72px}
+    .desktop-nav{
+      display:flex; justify-content:center; gap:18px;
+      white-space:nowrap;  /* prevents “Contact/Future” from dropping */
+    }
+    .desktop-nav a{
+      color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px
+    }
+    .desktop-nav a:hover{background:rgba(255,255,255,.06)}
+    .hamburger{display:none}
+    .nav-drawer{display:none} /* desktop uses inline nav */
+  }
+  
   
   /* Buttons */
   .btn{
@@ -181,3 +203,5 @@
   .stack-lg{margin-top:24px}
   .center{text-align:center}
   
+  /* Mobile drawer: hide the extra buttons row */
+.nav-drawer .nav-row { display: none !important; }
