@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Cinelli Scrap Education Logo</title>
+  <desc id="desc">Minimal C S monogram with metallic gradient.</desc>
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9aa0a6"/>
+      <stop offset="50%" stop-color="#d1d5db"/>
+      <stop offset="100%" stop-color="#7d8087"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="32" fill="url(#steel)"/>
+  <g fill="#0b0d12">
+    <path d="M170 88a50 50 0 1 0 0 80l-14-14a30 30 0 1 1 0-52z"/>
+    <path d="M96 168h64v20H96z"/>
+  </g>
+</svg>

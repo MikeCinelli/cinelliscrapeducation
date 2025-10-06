@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Free Consultation — Cinelli Scrap Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="wrapper header-inner">
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <a class="brand" href="index.html" data-nav><img src="assets/favicon.svg" alt=""><span>Cinelli Scrap Education</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a class="nav-link" data-nav href="about.html">About</a>
+        <a class="nav-link" data-nav href="contact.html">Contact</a>
+        <a class="nav-link" data-nav href="future.html">Future</a>
+      </nav>
+      <a class="btn" href="booking.html">Book Now</a>
+    </div>
+    <nav class="nav-drawer" aria-label="Mobile">
+      <a class="nav-link" data-nav href="about.html">About</a>
+      <a class="nav-link" data-nav href="contact.html">Contact</a>
+      <a class="nav-link" data-nav href="future.html">Future</a>
+      <div class="nav-row"><a class="btn" href="booking.html">Book Now</a><a class="btn ghost" href="index.html">Home</a></div>
+    </nav>
+  </header>
+
+  <main class="wrapper" id="content">
+    <section>
+      <h3 class="section-title">Free Consultation</h3>
+      <p class="section-sub">Zoom consultations on weekdays only, 12–3 pm.</p>
+
+      <form id="consultation-form" class="metal-border" novalidate>
+        <label for="c-name">Name</label>
+        <input id="c-name" name="name" autocomplete="name" placeholder="Your name" required>
+
+        <label for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+        <label for="c-date">Preferred Date (weekdays only)</label>
+        <input id="c-date" name="date" type="date" required>
+
+        <label for="c-time">Preferred Time</label>
+        <select id="c-time" name="time" required>
+          <option value="" selected disabled>Select a time</option>
+          <option>12:00 pm</option>
+          <option>12:30 pm</option>
+          <option>1:00 pm</option>
+          <option>1:30 pm</option>
+          <option>2:00 pm</option>
+          <option>2:30 pm</option>
+          <option>3:00 pm</option>
+        </select>
+
+        <button class="btn" type="submit">Request Consultation</button>
+        <p class="helper">You’ll see a confirmation after submitting.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrapper footer-inner">
+      <div>Wood-Ridge, NJ</div>
+      <div><a href="mailto:CinelliScrapEducation@gmail.com">CinelliScrapEducation@gmail.com</a></div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
