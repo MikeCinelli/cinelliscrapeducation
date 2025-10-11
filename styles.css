@@ -166,6 +166,7 @@
     grid-template-columns: 1fr;
   }
   .card{padding:18px; background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
+  .cards a.card{display:block; color:inherit; text-decoration:none}
   .card h4{margin:0 0 10px; font-size:1.1rem}
   .card ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
   
