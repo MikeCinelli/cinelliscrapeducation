@@ -65,7 +65,7 @@
     .header-inner{height:72px}
     .desktop-nav{
       display:flex; justify-content:center; gap:18px;
-      white-space:nowrap;  /* prevents “Contact/Future” from dropping */
+      white-space:nowrap;  /* keep single-link layout tidy */
     }
     .desktop-nav a{
       color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px
