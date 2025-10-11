@@ -167,7 +167,32 @@
   }
   .card{padding:18px; background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
   .card h4{margin:0 0 10px; font-size:1.1rem}
+  .card h4 a{
+    color:var(--text);
+    text-decoration:none;
+  }
+  .card h4 a:hover,
+  .card h4 a:focus-visible{
+    color:var(--accent-hi);
+    text-decoration:underline;
+  }
   .card ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
+  .card--with-image{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .card-body{flex:1}
+  .card-graphic{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:var(--radius);
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.05);
+    flex-shrink:0;
+  }
   
   /* Pricing */
   .pricing-blurb{color:var(--muted); margin-bottom:16px}
