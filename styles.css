@@ -229,7 +229,7 @@
   }
   .math-fractal .btn{
     justify-self:center;
-    min-width:70px;
+    min-width:100px;
     padding:0 18px;
     font-size:1.4rem;
   }
