@@ -59,8 +59,113 @@ function toast(msg){
   setTimeout(()=>t.remove(), 2500);
 }
 
+function initAudioSample(){
+  const buttons = $$('[data-audio-target]');
+  if(!buttons.length) return;
+  const registry = [];
+  buttons.forEach(btn=>{
+    const id = btn.getAttribute('data-audio-target');
+    if(!id) return;
+    const audio = document.getElementById(id);
+    if(!audio) return;
+    const label = btn.textContent.trim();
+    registry.push({btn, audio, label});
+    btn.addEventListener('click', ()=>{
+      if(audio.paused){
+        registry.forEach(entry=>{
+          if(entry.audio !== audio){
+            entry.audio.pause();
+            entry.audio.currentTime = 0;
+            entry.btn.textContent = entry.label;
+          }
+        });
+        audio.play();
+        btn.textContent = '⏸';
+      }else{
+        audio.pause();
+        audio.currentTime = 0;
+        btn.textContent = label;
+      }
+    });
+    audio.addEventListener('ended', ()=>{
+      btn.textContent = label;
+    });
+  });
+}
+
+function initVideoToggles(){
+  const videos = $$('[data-toggle-video]');
+  if(!videos.length) return;
+  videos.forEach(video=>{
+    video.addEventListener('click', ()=>{
+      if(video.paused){
+        video.play();
+      }else{
+        video.pause();
+      }
+    });
+  });
+}
+
+const FRACTAL_MAX = 6;
+function drawTriangle(ctx, ax, ay, bx, by, cx, cy){
+  ctx.beginPath();
+  ctx.moveTo(ax, ay);
+  ctx.lineTo(bx, by);
+  ctx.lineTo(cx, cy);
+  ctx.closePath();
+  ctx.fill();
+}
+function drawSierpinski(ctx, ax, ay, bx, by, cx, cy, depth){
+  if(depth <= 1){
+    drawTriangle(ctx, ax, ay, bx, by, cx, cy);
+    return;
+  }
+  const abx = (ax + bx) / 2;
+  const aby = (ay + by) / 2;
+  const bcx = (bx + cx) / 2;
+  const bcy = (by + cy) / 2;
+  const cax = (cx + ax) / 2;
+  const cay = (cy + ay) / 2;
+  drawSierpinski(ctx, ax, ay, abx, aby, cax, cay, depth - 1);
+  drawSierpinski(ctx, abx, aby, bx, by, bcx, bcy, depth - 1);
+  drawSierpinski(ctx, cax, cay, bcx, bcy, cx, cy, depth - 1);
+}
+function initFractalDemo(){
+  const container = $('[data-fractal]');
+  if(!container) return;
+  const canvas = container.querySelector('[data-fractal-canvas]');
+  const button = container.querySelector('[data-fractal-next]');
+  if(!canvas || !button) return;
+  const ctx = canvas.getContext('2d');
+  let iteration = 1;
+
+  function render(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#eef2f7';
+    const padding = 10;
+    const height = canvas.height - padding * 2;
+    const width = canvas.width - padding * 2;
+    const topX = canvas.width / 2;
+    const topY = padding;
+    const leftX = (canvas.width - width) / 2;
+    const leftY = canvas.height - padding;
+    const rightX = canvas.width - (canvas.width - width) / 2;
+    const rightY = canvas.height - padding;
+    drawSierpinski(ctx, leftX, leftY, rightX, rightY, topX, topY, iteration);
+  }
+
+  button.addEventListener('click', ()=>{
+    iteration = iteration >= FRACTAL_MAX ? 1 : iteration + 1;
+    render();
+  });
+
+  render();
+}
+
 /* Booking Form Logic
-   - Only allow fixed slots (4–5, 5:30–6:30, 7–8)
+   - Collect parent name, optional student, contact info, preferred day/time
+   - Validate weekday/time selections and basic contact details
    - Simulate submission & confirmation
 */
 function initBookingForm(){
@@ -71,10 +176,12 @@ function initBookingForm(){
     e.preventDefault();
     const name = $('#bk-name')?.value?.trim();
     const email = $('#bk-email')?.value?.trim();
+    const subject = $('#bk-subject')?.value;
+    const day = $('#bk-day')?.value;
     const slot = $('#bk-slot')?.value;
 
-    if(!name || !email || !slot){
-      toast('Please complete all fields.');
+    if(!name || !email || !subject || !day || !slot){
+      toast('Please complete all required fields.');
       return;
     }
     // rudimentary email check
@@ -82,8 +189,7 @@ function initBookingForm(){
       toast('Please enter a valid email.');
       return;
     }
-
-    toast(`Booked: ${slot}. Confirmation sent to ${email}.`);
+    toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.`);
     form.reset();
   });
 }
@@ -145,6 +251,9 @@ function initConsultationForm(){
 /* Initialize */
 document.addEventListener('DOMContentLoaded', ()=>{
   initNav();
+  initAudioSample();
+  initVideoToggles();
+  initFractalDemo();
   initBookingForm();
   initReferralForm();
   initConsultationForm();
