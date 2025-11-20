@@ -267,6 +267,8 @@
     box-shadow:0 12px 28px rgba(0,0,0,.55), 0 0 25px rgba(72,88,120,.35);
     color:var(--text);
     touch-action:manipulation;
+    appearance:none;
+    -webkit-appearance:none;
   }
   .card--with-image{
     display:flex;
