@@ -194,6 +194,11 @@
     align-items:center;
     justify-content:center;
     touch-action:manipulation;
+    color:#0b0d12;
+  }
+  .play-sample:active,
+  .play-sample:focus-visible{
+    color:#0b0d12;
   }
   .card-media{
     margin-top:12px;
