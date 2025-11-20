@@ -17,12 +17,15 @@
       <nav class="desktop-nav" aria-label="Primary">
         <a class="nav-link" data-nav href="about.html">About</a>
       </nav>
-      <a class="btn" href="index.html#booking-section">Book Session</a>
+      <a class="btn" href="index.html#booking-section">Book Now</a>
     </div>
     <nav class="nav-drawer" aria-label="Mobile">
       <a class="nav-link" data-nav href="about.html">About</a>
+      <a class="nav-link" data-nav href="piano.html">Piano</a>
+      <a class="nav-link" data-nav href="chess.html">Chess</a>
+      <a class="nav-link" data-nav href="mathematics.html">Math</a>
       <div class="nav-row">
-        <a class="btn" href="index.html#booking-section">Book Session</a>
+        <a class="btn" href="index.html#booking-section">Book Now</a>
         <a class="btn ghost" href="index.html">Home</a>
       </div>
     </nav>
@@ -36,7 +39,7 @@
           <h1 id="hero-title">Cinelli Tutoring</h1>
           <h2>Piano • Chess • Math</h2>
           <div class="cta-row">
-            <a class="btn" href="index.html#booking-section">Book Session</a>
+            <a class="btn" href="index.html#booking-section">Book Now</a>
           </div>
         </div>
       </div>
@@ -46,13 +49,18 @@
     <section aria-labelledby="svc-title">
       <div class="wrapper">
         <h3 class="section-title" id="svc-title">Service</h3>
-        <p class="section-sub">I provide in-home tutoring for:</p>
+        <p class="section-sub">In-home tutoring in any of the following subjects:</p>
 
         <div class="cards" role="list">
-          <article class="card" role="listitem">
+          <article class="card" role="listiem">
             <div class="card-body">
               <h4><a href="piano.html">Piano</a></h4>
-              <button type="button" class="btn play-sample" data-audio-target="hungarian-audio">
+              <button
+                type="button"
+                class="card-icon-btn play-sample"
+                aria-label="Play sample"
+                data-audio-target="hungarian-audio"
+              >
                 ▶
               </button>
               <audio id="hungarian-audio" src="assets/Adam Gyorgy Hungarian Rhapsody No. 2.mp3" preload="auto"></audio>
@@ -79,7 +87,12 @@
               <h4><a href="mathematics.html">Math</a></h4>
               <div class="math-fractal" data-fractal>
                 <canvas width="220" height="220" aria-label="Sierpinski triangle demo" data-fractal-canvas></canvas>
-                <button type="button" class="btn ghost" aria-label="Increase iteration" data-fractal-next>+</button>
+                <button
+                  type="button"
+                  class="card-icon-btn fractal-trigger"
+                  aria-label="Increase triangle complexity"
+                  data-fractal-next
+                >+</button>
               </div>
             </div>
           </article>
@@ -91,7 +104,7 @@
     <!-- Booking Section -->
     <section id="booking-section" aria-labelledby="booking-title">
       <div class="wrapper">
-        <h3 class="section-title" id="booking-title">Book a Session</h3>
+        <h3 class="section-title" id="booking-title">Book a Lesson</h3>
         <p class="section-sub">Lessons are $75 per hour.</p>
 
         <form id="booking-form" class="metal-border" novalidate>
@@ -131,7 +144,7 @@
             <option>7:00–8:00 pm</option>
           </select>
 
-          <button class="btn" type="submit">Book Session</button>
+          <button class="btn" type="submit">Book Now</button>
           <ul class="helper">
             <li>First lesson free</li>
             <li>Free consultation</li>
@@ -145,7 +158,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="wrapper footer-inner">
       <div>Wood-Ridge, NJ</div>
-      <div><a href="mailto:CinelliScrapEducation@gmail.com">CinelliScrapEducation@gmail.com</a></div>
+      <div><a href="mailto:MichaelAngeloCinelli@gmail.com">MichaelAngeloCinelli@gmail.com</a></div>
     </div>
   </footer>
 
