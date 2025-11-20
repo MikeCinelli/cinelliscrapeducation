@@ -207,11 +207,15 @@
     color:var(--text);
     -webkit-text-fill-color:var(--text);
     touch-action:manipulation;
+    appearance:none;
+    -webkit-appearance:none;
   }
   .play-sample:active,
   .play-sample:focus-visible{
     color:var(--text);
     -webkit-text-fill-color:var(--text);
+    appearance:none;
+    -webkit-appearance:none;
   }
   .card-media{
     margin-top:12px;
@@ -267,8 +271,6 @@
     box-shadow:0 12px 28px rgba(0,0,0,.55), 0 0 25px rgba(72,88,120,.35);
     color:var(--text);
     touch-action:manipulation;
-    appearance:none;
-    -webkit-appearance:none;
   }
   .card--with-image{
     display:flex;
