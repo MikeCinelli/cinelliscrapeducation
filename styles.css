@@ -87,6 +87,12 @@
   }
   .btn:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
   .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.18)}
+  .play-sample,
+  .play-sample:focus-visible,
+  .play-sample:active{
+    color:var(--text);
+    -webkit-text-fill-color:var(--text);
+  }
   
   /* Hamburger */
   .hamburger{
