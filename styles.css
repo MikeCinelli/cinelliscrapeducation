@@ -184,16 +184,41 @@
     text-decoration:underline;
   }
   .card ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
+  @keyframes buttonRing{
+    0%{opacity:.4; transform:scale(1);}
+    100%{opacity:.8; transform:scale(1.12);}
+  }
   .play-sample{
-    width:auto;
-    min-width:100px;
-    font-size:1rem;
-    gap:8px;
-    margin:8px auto 0;
+    width:72px;
+    height:72px;
+    min-width:0;
+    padding:0;
+    font-size:1.6rem;
+    margin:14px auto 0;
     display:flex;
     align-items:center;
     justify-content:center;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+    background:#05070c;
+    box-shadow:0 12px 28px rgba(0,0,0,.55);
+    color:var(--text);
     touch-action:manipulation;
+    position:relative;
+    isolation:isolate;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  .play-sample::after{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:inherit;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 18px rgba(108,152,255,.35);
+    pointer-events:none;
+    animation:buttonRing 4s ease-in-out infinite alternate;
+    z-index:-1;
   }
   .card-media{
     margin-top:12px;
@@ -237,11 +262,31 @@
   }
   .math-fractal .btn{
     justify-self:center;
-    min-width:100px;
-    min-height: 100px;
-    padding:0 18px;
-    font-size:1.4rem;
+    width:72px;
+    height:72px;
+    min-width:0;
+    min-height:0;
+    padding:0;
+    font-size:1.6rem;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+    background:#05070c;
+    box-shadow:0 12px 28px rgba(0,0,0,.55);
+    color:var(--text);
     touch-action:manipulation;
+    position:relative;
+    isolation:isolate;
+  }
+  .math-fractal .btn::after{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:inherit;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 18px rgba(108,152,255,.35);
+    pointer-events:none;
+    animation:buttonRing 4s ease-in-out infinite alternate;
+    z-index:-1;
   }
   .card--with-image{
     display:flex;
