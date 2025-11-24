@@ -97,13 +97,13 @@
         <p class="section-sub">Lessons are $75 per hour.</p>
 
         <form id="booking-form" class="metal-border" novalidate>
-          <label for="bk-name">Name</label>
+          <label for="bk-name">Name <span class="field-error" data-error-for="bk-name"></span></label>
           <input id="bk-name" name="name" autocomplete="name" required>
 
-          <label for="bk-email">Email</label>
+          <label for="bk-email">Email <span class="field-error" data-error-for="bk-email"></span></label>
           <input id="bk-email" name="email" type="email" autocomplete="email" required>
 
-          <label for="bk-subject">Subject</label>
+          <label for="bk-subject">Subject <span class="field-error" data-error-for="bk-subject"></span></label>
           <select id="bk-subject" name="subject" required>
             <option value="" selected disabled></option>
             <option>Piano</option>
@@ -112,7 +112,7 @@
             <option>More than one</option>
           </select>
 
-          <label for="bk-day">Day</label>
+          <label for="bk-day">Day <span class="field-error" data-error-for="bk-day"></span></label>
           <select id="bk-day" name="day" required>
             <option value="" selected disabled></option>
             <option>Monday</option>
@@ -123,7 +123,7 @@
             <option>Saturday</option>
           </select>
 
-          <label for="bk-slot">Time</label>
+          <label for="bk-slot">Time <span class="field-error" data-error-for="bk-slot"></span></label>
           <select id="bk-slot" name="slot" required>
             <option value="" selected disabled></option>
             <option>4:00–5:00 pm</option>

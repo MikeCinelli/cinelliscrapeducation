@@ -175,6 +175,23 @@ function initFractalDemo(){
 function initBookingForm(){
   const form = $('#booking-form');
   if(!form) return;
+  const errorEls = {};
+  $$('[data-error-for]').forEach(el=>{
+    const key = el.getAttribute('data-error-for');
+    if(key){ errorEls[key] = el; }
+  });
+
+  function setError(id, message){
+    const el = errorEls[id];
+    if(!el) return;
+    if(message){
+      el.textContent = `* ${message}`;
+      el.classList.add('visible');
+    }else{
+      el.textContent = '';
+      el.classList.remove('visible');
+    }
+  }
 
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -184,17 +201,42 @@ function initBookingForm(){
     const day = $('#bk-day')?.value;
     const slot = $('#bk-slot')?.value;
 
-    if(!name || !email || !subject || !day || !slot){
-      toast('Please complete all required fields.');
-      return;
+    let hasError = false;
+    if(!name){
+      setError('bk-name','Please submit name');
+      hasError = true;
+    }else{
+      setError('bk-name');
     }
-    // rudimentary email check
-    if(!/^\S+@\S+\.\S+$/.test(email)){
-      toast('Please enter a valid email.');
-      return;
+    if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+      setError('bk-email','Please submit a valid email');
+      hasError = true;
+    }else{
+      setError('bk-email');
     }
+    if(!subject){
+      setError('bk-subject','Please submit subject');
+      hasError = true;
+    }else{
+      setError('bk-subject');
+    }
+    if(!day){
+      setError('bk-day','Please submit day');
+      hasError = true;
+    }else{
+      setError('bk-day');
+    }
+    if(!slot){
+      setError('bk-slot','Please submit time');
+      hasError = true;
+    }else{
+      setError('bk-slot');
+    }
+    if(hasError) return;
+
     toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.`);
     form.reset();
+    Object.keys(errorEls).forEach(key=>setError(key));
   });
 }
 

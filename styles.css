@@ -292,6 +292,13 @@
     border:1px solid rgba(255,255,255,.18); background:#0e1118; color:var(--text);
   }
   input:focus, select:focus, textarea:focus{outline:2px solid var(--ring); outline-offset:2px}
+  .field-error{
+    display:none;
+    margin-left:6px;
+    color:#f87171;
+    font-size:.85rem;
+  }
+  .field-error.visible{display:inline;}
   .helper{color:var(--muted); font-size:.93rem}
   
   /* Responsive (tablet/desktop) */
