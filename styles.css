@@ -242,9 +242,8 @@
   }
   .math-card{display:flex; flex-direction:column; gap:12px}
   .math-fractal{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
+    display:flex;
+    justify-content:center;
     gap:12px;
     padding:12px;
     border-radius:14px;
@@ -259,34 +258,8 @@
     background:#080a12;
     border-radius:12px;
     border:1px solid rgba(255,255,255,.08);
-  }
-  .math-fractal .btn{
-    justify-self:center;
-    width:72px;
-    height:72px;
-    min-width:0;
-    min-height:0;
-    padding:0;
-    font-size:1.6rem;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.3);
-    background:#05070c;
-    box-shadow:0 12px 28px rgba(0,0,0,.55);
-    color:var(--text);
+    cursor:pointer;
     touch-action:manipulation;
-    position:relative;
-    isolation:isolate;
-  }
-  .math-fractal .btn::after{
-    content:"";
-    position:absolute;
-    inset:-6px;
-    border-radius:inherit;
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 0 18px rgba(108,152,255,.35);
-    pointer-events:none;
-    animation:buttonRing 4s ease-in-out infinite alternate;
-    z-index:-1;
   }
   .card--with-image{
     display:flex;

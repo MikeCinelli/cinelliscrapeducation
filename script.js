@@ -135,8 +135,7 @@ function initFractalDemo(){
   const container = $('[data-fractal]');
   if(!container) return;
   const canvas = container.querySelector('[data-fractal-canvas]');
-  const button = container.querySelector('[data-fractal-next]');
-  if(!canvas || !button) return;
+  if(!canvas) return;
   const ctx = canvas.getContext('2d');
   let iteration = 1;
 
@@ -155,10 +154,15 @@ function initFractalDemo(){
     drawSierpinski(ctx, leftX, leftY, rightX, rightY, topX, topY, iteration);
   }
 
-  button.addEventListener('click', ()=>{
+  const advance = ()=>{
     iteration = iteration >= FRACTAL_MAX ? 1 : iteration + 1;
     render();
-  });
+  };
+  canvas.addEventListener('click', advance);
+  canvas.addEventListener('touchstart', (e)=>{
+    e.preventDefault();
+    advance();
+  }, {passive:false});
 
   render();
 }
