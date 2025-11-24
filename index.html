@@ -101,7 +101,7 @@
           <input id="bk-name" name="name" autocomplete="name" required>
 
           <label for="bk-student">Student Name</label>
-          <input id="bk-student" name="student" autocomplete="off" placeholder="Optional">
+          <input id="bk-student" name="student" autocomplete="off">
 
           <label for="bk-email">Email</label>
           <input id="bk-email" name="email" type="email" autocomplete="email" required>
@@ -115,7 +115,7 @@
             <option>More than one</option>
           </select>
 
-          <label for="bk-day">Day</label>
+          <label for="bk-day">Preferred Day</label>
           <select id="bk-day" name="day" required>
             <option value="" selected disabled>Available Days</option>
             <option>Monday</option>
@@ -123,14 +123,17 @@
             <option>Wednesday</option>
             <option>Thursday</option>
             <option>Friday</option>
+            <option>Saturday</option>
           </select>
 
-          <label for="bk-slot">Time</label>
+          <label for="bk-slot">Preferred Time</label>
           <select id="bk-slot" name="slot" required>
             <option value="" selected disabled>Available Times</option>
             <option>4:00–5:00 pm</option>
             <option>5:30–6:30 pm</option>
             <option>7:00–8:00 pm</option>
+            <option>12:00-1:00 pm(Saturday only)</option>
+            <option>1:30-2:30 pm(Saturday only)</option>
           </select>
 
           <button class="btn" type="submit">Book Now</button>
