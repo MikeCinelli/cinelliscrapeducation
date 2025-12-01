@@ -240,12 +240,12 @@ function initBookingForm(){
     }
     if(hasError) return;
 
-    const payload = { name, student, email, subject, day, slot };
+    const payload = new URLSearchParams({ name, student, email, subject, day, slot });
     try{
       const response = await fetch(GOOGLE_FORM_ENDPOINT, {
         method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:payload.toString()
       });
       const result = await response.json().catch(()=>({status:'error'}));
       if(!response.ok || result.status !== 'ok'){
