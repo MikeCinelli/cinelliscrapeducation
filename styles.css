@@ -299,6 +299,12 @@
     font-size:.85rem;
   }
   .field-error.visible{display:inline;}
+  .hp-field{
+    position:absolute !important;
+    left:-9999px;
+    opacity:0;
+    pointer-events:none;
+  }
   .helper{color:var(--muted); font-size:.93rem}
   
   /* Responsive (tablet/desktop) */

@@ -107,6 +107,7 @@ function initVideoToggles(){
   });
 }
 
+const GOOGLE_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzQ7daT5aJZxV9YJJinXGcmB0-EHb22WYKxsFqLCO9EWASZjSVNnmmdk8Z9_D_yKdGV/exec';
 const FRACTAL_MAX = 6;
 function drawTriangle(ctx, ax, ay, bx, by, cx, cy){
   ctx.beginPath();
@@ -193,15 +194,20 @@ function initBookingForm(){
     }
   }
 
-  form.addEventListener('submit', (e)=>{
+  form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const name = $('#bk-name')?.value?.trim();
+    const student = $('#bk-student')?.value?.trim();
     const email = $('#bk-email')?.value?.trim();
     const subject = $('#bk-subject')?.value;
     const day = $('#bk-day')?.value;
     const slot = $('#bk-slot')?.value;
+    const honey = $('#bk-website')?.value?.trim();
 
     let hasError = false;
+    if(honey){
+      return;
+    }
     if(!name){
       setError('bk-name','Please submit name');
       hasError = true;
@@ -233,6 +239,22 @@ function initBookingForm(){
       setError('bk-slot');
     }
     if(hasError) return;
+
+    const payload = { name, student, email, subject, day, slot };
+    try{
+      const response = await fetch(GOOGLE_FORM_ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      const result = await response.json().catch(()=>({status:'error'}));
+      if(!response.ok || result.status !== 'ok'){
+        throw new Error('Bad response');
+      }
+    }catch(err){
+      toast('Sorry, we could not send your request right now. Please email CinelliTutoring@gmail.com.');
+      return;
+    }
 
     toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.`);
     form.reset();
