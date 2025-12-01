@@ -240,7 +240,14 @@ function initBookingForm(){
     }
     if(hasError) return;
 
-    const payload = new URLSearchParams({ name, student, email, subject, day, slot });
+    const payload = new URLSearchParams({
+      name,
+      student: student || '',
+      email,
+      subject,
+      day,
+      slot
+    });
     try{
       const response = await fetch(GOOGLE_FORM_ENDPOINT, {
         method:'POST',
