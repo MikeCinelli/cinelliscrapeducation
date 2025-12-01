@@ -301,9 +301,13 @@
   .field-error.visible{display:inline;}
   .hp-field{
     position:absolute !important;
-    left:-9999px;
-    opacity:0;
-    pointer-events:none;
+    width:1px;
+    height:1px;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    clip-path:inset(50%);
+    border:0;
   }
   .helper{color:var(--muted); font-size:.93rem}
   
