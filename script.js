@@ -107,7 +107,7 @@ function initVideoToggles(){
   });
 }
 
-const GOOGLE_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzQ7daT5aJZxV9YJJinXGcmB0-EHb22WYKxsFqLCO9EWASZjSVNnmmdk8Z9_D_yKdGV/exec';
+const GOOGLE_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbztXNW9p1dyEaq1eD7COqSH9w4s2JJLCmc3_i-qyVQC-ISX23KxqtGpEf-zsmPO-5B5/exec';
 const FRACTAL_MAX = 6;
 function drawTriangle(ctx, ax, ay, bx, by, cx, cy){
   ctx.beginPath();
