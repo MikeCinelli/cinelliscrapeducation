@@ -97,8 +97,8 @@
   .hamburger span, .hamburger::before, .hamburger::after{
     content:""; display:block; width:18px; height:2px; background:var(--text); transition:.25s ease;
   }
-  .hamburger::before{transform:translateY(-6px)}
-  .hamburger::after{transform:translateY(6px)}
+  .hamburger::before{transform:translateY(-1px)}
+  .hamburger::after{transform:translateY(1px)}
   .hamburger[aria-expanded="true"] span{opacity:0}
   .hamburger[aria-expanded="true"]::before{transform:translateY(0) rotate(45deg)}
   .hamburger[aria-expanded="true"]::after{transform:translateY(0) rotate(-45deg)}
