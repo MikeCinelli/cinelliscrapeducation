@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Cinelli Tutoring emblem</title>
+  <desc id="logo-desc">Metallic gray square framing a circle with a centered triangle.</desc>
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#c9ced6"/>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cfd4db"/>
+      <stop offset="45%" stop-color="#e3e8ef"/>
       <stop offset="100%" stop-color="#7a7f87"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="12" fill="url(#g)"/>
-  <path d="M18 32a14 14 0 1 0 0-0.1M28 42h18v6H28z" fill="#0b0d12"/>
+  <rect width="64" height="64" rx="14" fill="url(#metal)"/>
+  <rect x="6" y="6" width="52" height="52" rx="10" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="3.5"/>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="rgba(236,238,242,0.9)" stroke-width="3.5"/>
+  <polygon points="32 16 48 46 16 46" fill="none" stroke="rgba(236,238,242,0.9)" stroke-width="3.5" stroke-linejoin="round"/>
 </svg>

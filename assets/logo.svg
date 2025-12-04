@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-  <title id="title">Cinelli Tutoring Logo</title>
-  <desc id="desc">Minimal C S monogram with metallic gradient.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Cinelli Tutoring emblem</title>
+  <desc id="logo-desc">Metallic square, circle, and triangle stacked to form the brand mark.</desc>
   <defs>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#9aa0a6"/>
-      <stop offset="50%" stop-color="#d1d5db"/>
-      <stop offset="100%" stop-color="#7d8087"/>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cfd4db"/>
+      <stop offset="45%" stop-color="#e5e9ef"/>
+      <stop offset="100%" stop-color="#7a7f87"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="32" fill="url(#steel)"/>
-  <g fill="#0b0d12">
-    <path d="M170 88a50 50 0 1 0 0 80l-14-14a30 30 0 1 1 0-52z"/>
-    <path d="M96 168h64v20H96z"/>
-  </g>
+  <rect width="256" height="256" rx="32" fill="url(#metal)"/>
+  <rect x="24" y="24" width="208" height="208" rx="32" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16"/>
+  <circle cx="128" cy="128" r="84" fill="none" stroke="rgba(236,238,242,0.92)" stroke-width="16"/>
+  <polygon points="128 64 204 196 52 196" fill="none" stroke="rgba(236,238,242,0.92)" stroke-width="16" stroke-linejoin="round"/>
 </svg>
