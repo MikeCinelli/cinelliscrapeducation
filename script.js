@@ -40,10 +40,15 @@ function initNav(){
   });
 }
 
+let activeToast = null;
 function toast(msg){
+  if(activeToast){
+    activeToast.remove();
+    activeToast = null;
+  }
   const t = document.createElement('div');
-  t.textContent = msg;
   t.role = 'status';
+  t.ariaLive = 'polite';
   t.style.position = 'fixed';
   t.style.insetInline = '0';
   t.style.bottom = '18px';
@@ -54,9 +59,38 @@ function toast(msg){
   t.style.background = 'linear-gradient(180deg, rgba(209,213,219,.95), rgba(154,160,166,.95))';
   t.style.color = '#0b0d12';
   t.style.boxShadow = '0 8px 24px rgba(0,0,0,.45)';
-  t.style.textAlign = 'center';
+  t.style.display = 'flex';
+  t.style.alignItems = 'center';
+  t.style.justifyContent = 'space-between';
+  t.style.gap = '12px';
+
+  const text = document.createElement('span');
+  text.textContent = msg;
+  text.style.flex = '1';
+  text.style.textAlign = 'left';
+
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.textContent = '×';
+  close.ariaLabel = 'Dismiss message';
+  close.style.border = 'none';
+  close.style.background = 'rgba(0,0,0,0.1)';
+  close.style.color = '#0b0d12';
+  close.style.fontSize = '20px';
+  close.style.width = '32px';
+  close.style.height = '32px';
+  close.style.lineHeight = '1';
+  close.style.borderRadius = '50%';
+  close.style.cursor = 'pointer';
+  close.addEventListener('click', ()=>{
+    t.remove();
+    activeToast = null;
+  });
+
+  t.appendChild(text);
+  t.appendChild(close);
   document.body.appendChild(t);
-  setTimeout(()=>t.remove(), 2500);
+  activeToast = t;
 }
 
 function initAudioSample(){
@@ -263,7 +297,7 @@ function initBookingForm(){
       return;
     }
 
-    toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.');
+    toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}. Check your spam folder!`);
     form.reset();
     Object.keys(errorEls).forEach(key=>setError(key));
   });
