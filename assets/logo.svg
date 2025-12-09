@@ -8,8 +8,8 @@
       <stop offset="100%" stop-color="#7a7f87"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="32" fill="url(#metal)"/>
-  <rect x="24" y="24" width="208" height="208" rx="32" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16"/>
-  <circle cx="128" cy="128" r="90" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16"/>
-  <polygon points="128 50 204 182 52 182" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16" stroke-linejoin="round"/>
+  <rect width="256" height="256" rx="0" fill="url(#metal)"/>
+  <rect x="24" y="24" width="208" height="208" rx="0" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16"/>
+  <circle cx="128" cy="128" r="104" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16"/>
+  <polygon points="128 30 215 182 40 182" fill="none" stroke="rgba(30,34,42,0.85)" stroke-width="16" stroke-linejoin="round"/>
 </svg>

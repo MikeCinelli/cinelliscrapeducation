@@ -263,7 +263,7 @@ function initBookingForm(){
       return;
     }
 
-    toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.`);
+    toast(`Request received for ${day} at ${slot}. We'll confirm at ${email}.');
     form.reset();
     Object.keys(errorEls).forEach(key=>setError(key));
   });
